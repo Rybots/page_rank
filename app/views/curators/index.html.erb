@@ -6,7 +6,7 @@
   <%= f.hidden_field :cron, value: true %>
 <% end %>
 
-<%= link_to "実行ボタン", { :controller => :curators, :action => :cron} %>
+<%= link_to "実行ボタン", { :controller => :curators, :action => :cron},:method	=> :post %>
 
 
 <p>登録済みワード</p>
