@@ -1,0 +1,25 @@
+
+
+<%= form_for @curator,url: {controller: "curators",action: "create"} do |f| %>
+  <%= f.label :word,"検索ワード" %><br>
+  <%= f.text_field :word %>
+  <%= f.hidden_field :cron, value: true %>
+<% end %>
+
+<%= link_to "実行ボタン", { :controller => :curators, :action => :cron} %>
+
+
+<p>登録済みワード</p>
+<ul>
+  <% @curators.each do |c| %>
+    <li><%= c.word %> / <%= "実行中" if c.cron == true %></li>
+  <% end %>
+</ul>
+
+
+<p>CSVファイル一覧</p>
+<ul>
+  <% @csvs.each do |f| %>
+    <li><%= f.file_name %></li>
+  <% end %>
+</ul>
